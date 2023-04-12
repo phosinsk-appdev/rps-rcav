@@ -32,4 +32,20 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def play_scissors
+    
+    @comp_move = ["rock", "paper", "scissors"].sample 
+
+    if @comp_move == "rock" 
+      @outcome = "lost"
+    elsif @comp_move == "scissors"
+      @outcome = "tied"
+     else 
+      @outcome = "won"
+    end 
+    
+    render({:template => "game_templates/user_scissors.html.erb" })
+
+  end
+
 end
